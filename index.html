@@ -5,29 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Senthil Studio</title>
 
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 
-body{
-margin:0;
-font-family:'Segoe UI', sans-serif;
-background:#fff6f9;
-color:#4a2c35;
-}
+/* ===== THEME COLORS ===== */
 
 :root{
---primary:#e8a0bf;
---dark:#a63d6a;
---light:#ffffff;
---soft:#ffe3ec;
+--lavender:#e6e6fa;
+--purple:#9b7ede;
+--dark:#5e4b8b;
+--white:#ffffff;
+--soft:#f4f0ff;
 }
 
-/* HEADER */
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+background:var(--lavender);
+color:#333;
+font-size:18px;
+}
+
+/* ===== HEADER ===== */
 
 header{
-background:linear-gradient(135deg,#ffd6e8,#f3a6c6);
-padding:15px;
+background:linear-gradient(135deg,#d8ccff,#c3b6ff);
+padding:20px;
 position:fixed;
 width:100%;
 top:0;
@@ -38,167 +45,200 @@ box-shadow:0 4px 10px rgba(0,0,0,0.08);
 nav{
 display:flex;
 justify-content:center;
-gap:40px;
+gap:50px;
 }
 
 nav a{
 text-decoration:none;
-color:#4a2c35;
+color:var(--dark);
 font-weight:600;
+font-size:18px;
 }
 
 nav a:hover{
-color:var(--dark);
+color:#000;
 }
 
-/* SLIDER */
+/* ===== BANNER ===== */
 
 .slider{
-margin-top:80px;
-position:relative;
+margin-top:100px;
 overflow:hidden;
+position:relative;
+background:var(--soft);
 }
 
 .slides{
 display:flex;
-transition:1s;
+transition:transform 0.8s ease-in-out;
 }
 
 .slides img{
 width:100%;
 height:600px;
 object-fit:cover;
+flex-shrink:0;
 }
 
 .prev,.next{
 position:absolute;
 top:50%;
 transform:translateY(-50%);
-background:rgba(255,255,255,0.7);
+background:rgba(255,255,255,0.9);
 border:none;
-padding:12px 18px;
+padding:14px 20px;
 cursor:pointer;
-font-size:18px;
-color:var(--dark);
+font-size:20px;
 border-radius:50%;
+color:var(--dark);
 }
 
 .prev{left:20px;}
 .next{right:20px;}
 
-/* WELCOME */
+/* ===== WELCOME SECTION ===== */
 
 .welcome{
 display:flex;
 align-items:center;
 justify-content:center;
-padding:80px 10%;
-gap:50px;
-flex-wrap:wrap;
+padding:120px 10%;
+gap:80px;
+background:var(--soft);
 }
 
-.welcome img{
-width:420px;
+.welcome-image{
+flex:1;
+}
+
+.welcome-image img{
+width:100%;
+max-width:500px;
 border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
-.welcome h2{
+.welcome-content{
+flex:1;
+}
+
+.welcome-content h2{
 color:var(--dark);
+font-size:38px;
+margin-bottom:20px;
 }
 
-/* SERVICES */
+.welcome-content p{
+font-size:18px;
+line-height:1.8;
+}
+
+/* ===== SERVICES ===== */
 
 .services{
 text-align:center;
-padding:60px 10%;
+padding:100px 10%;
+}
+
+.services h2{
+font-size:36px;
+color:var(--dark);
+margin-bottom:40px;
 }
 
 .service-container{
 display:flex;
 justify-content:center;
-gap:30px;
+gap:40px;
 flex-wrap:wrap;
 }
 
 .service-box{
-background:var(--light);
-padding:15px;
-border-radius:15px;
-box-shadow:0 6px 18px rgba(0,0,0,0.08);
+background:var(--white);
+padding:20px;
+border-radius:18px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
 cursor:pointer;
 transition:0.4s;
-width:260px;
+width:280px;
 }
 
 .service-box:hover{
-transform:translateY(-10px);
+transform:translateY(-12px);
 }
 
 .service-box img{
 width:100%;
-height:250px;
+height:260px;
 object-fit:cover;
-border-radius:12px;
+border-radius:14px;
+}
+
+.service-box h3{
+margin-top:15px;
+font-size:20px;
 }
 
 .button{
-margin-top:30px;
-padding:12px 30px;
-background:var(--dark);
+margin-top:40px;
+padding:14px 40px;
+background:var(--purple);
 color:white;
 border:none;
 cursor:pointer;
-border-radius:25px;
+border-radius:30px;
 font-weight:600;
+font-size:16px;
 }
 
 .button:hover{
-background:#7d2c4e;
+background:var(--dark);
 }
 
-/* GALLERY */
+/* ===== GALLERY ===== */
 
 .gallery-section{
 background:var(--soft);
-padding:60px 0;
+padding:100px 0;
 text-align:center;
 overflow:hidden;
+}
+
+.gallery-section h2{
+font-size:36px;
+color:var(--dark);
+margin-bottom:40px;
 }
 
 .gallery-wrapper{
 overflow:hidden;
 white-space:nowrap;
-position:relative;
 }
 
 .gallery-track{
 display:inline-block;
-animation:marquee 25s linear infinite;
+animation:marquee 30s linear infinite;
 }
 
 .gallery-track img{
-width:300px;
-height:200px;
-margin:0 12px;
+width:320px;
+height:220px;
+margin:0 15px;
 object-fit:cover;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
+border-radius:14px;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
 }
 
-/* duplicate animation loop */
 @keyframes marquee{
 0%{transform:translateX(0);}
 100%{transform:translateX(-50%);}
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 
 footer{
-background:linear-gradient(135deg,#ffd6e8,#f3a6c6);
-padding:50px 8%;
-color:#4a2c35;
-margin-top:40px;
+background:linear-gradient(135deg,#d8ccff,#c3b6ff);
+padding:70px 8%;
 }
 
 .footer-columns{
@@ -210,60 +250,70 @@ flex-wrap:wrap;
 
 .footer-columns div{
 flex:1;
-min-width:220px;
+min-width:230px;
 }
 
 .footer-columns h3{
-margin-bottom:15px;
 color:var(--dark);
+margin-bottom:20px;
+font-size:20px;
 }
 
 .footer-columns a,
 .footer-columns p{
 display:block;
 text-decoration:none;
-color:#4a2c35;
-margin:8px 0;
-font-size:14px;
+color:#333;
+margin:10px 0;
+font-size:16px;
 }
 
 .footer-columns a:hover{
-color:var(--dark);
+color:var(--purple);
 }
 
 iframe{
 width:100%;
-height:200px;
-border-radius:12px;
+height:220px;
+border-radius:14px;
 border:2px solid white;
 }
 
 .footer-bottom{
 text-align:center;
-margin-top:30px;
-padding-top:15px;
+margin-top:40px;
+padding-top:20px;
 border-top:1px solid rgba(0,0,0,0.1);
-font-size:14px;
+font-size:16px;
 }
 
 .social-icons{
-margin-bottom:20px;
 text-align:center;
+margin-bottom:30px;
 }
 
 .social-icons i{
-font-size:18px;
-margin:0 10px;
+font-size:20px;
+margin:0 12px;
 background:white;
-color:var(--dark);
-padding:10px;
+color:var(--purple);
+padding:12px;
 border-radius:50%;
 cursor:pointer;
 }
 
 .social-icons i:hover{
-background:var(--dark);
+background:var(--purple);
 color:white;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media(max-width:900px){
+.welcome{
+flex-direction:column;
+text-align:center;
+}
 }
 
 </style>
@@ -280,35 +330,41 @@ color:white;
 </nav>
 </header>
 
-<!-- SLIDER -->
+<!-- ===== BANNER ===== -->
 
 <div class="slider">
-<div class="slides">
+<div class="slides" id="slides">
 <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
 <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
 <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
 </div>
-<button class="prev">&#10094;</button>
-<button class="next">&#10095;</button>
+<button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+<button class="next" onclick="moveSlide(1)">&#10095;</button>
 </div>
 
-<!-- WELCOME -->
+<!-- ===== WELCOME ===== -->
 
 <section class="welcome">
+
+<div class="welcome-image">
 <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0">
-<div>
+</div>
+
+<div class="welcome-content">
 <h2>Welcome to Senthil Studio</h2>
 <p>
 Located at First Floor, Thirupathur Bus Stand Opposite, Thirupathur.
 We capture timeless memories through wedding, event, baby and portrait photography with creativity and perfection.
+Our goal is to transform every special moment into a beautiful story that lasts forever.
 </p>
 </div>
+
 </section>
 
-<!-- SERVICES -->
+<!-- ===== SERVICES ===== -->
 
 <section class="services">
-<h2 style="color:var(--dark)">Our Services</h2>
+<h2>Our Services</h2>
 
 <div class="service-container">
 <div class="service-box">
@@ -330,10 +386,10 @@ We capture timeless memories through wedding, event, baby and portrait photograp
 <button class="button">View Our Services</button>
 </section>
 
-<!-- GALLERY -->
+<!-- ===== GALLERY ===== -->
 
 <section class="gallery-section">
-<h2 style="color:var(--dark)">Our Gallery</h2>
+<h2>Our Gallery</h2>
 
 <div class="gallery-wrapper">
 <div class="gallery-track">
@@ -343,7 +399,6 @@ We capture timeless memories through wedding, event, baby and portrait photograp
 <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0">
 <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
 
-<!-- Duplicate images for smooth infinite loop -->
 <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
 <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
 <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
@@ -356,7 +411,7 @@ We capture timeless memories through wedding, event, baby and portrait photograp
 <button class="button">View Gallery</button>
 </section>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER ===== -->
 
 <footer>
 
@@ -406,19 +461,20 @@ We capture timeless memories through wedding, event, baby and portrait photograp
 </footer>
 
 <script>
-let index=0;
-const slides=document.querySelector('.slides');
-const total=document.querySelectorAll('.slides img').length;
+let currentIndex = 0;
+const slides = document.getElementById("slides");
+const totalSlides = slides.children.length;
 
-function showSlide(i){
-if(i>=total) index=0;
-if(i<0) index=total-1;
-slides.style.transform=`translateX(${-index*100}%)`;
+function moveSlide(direction){
+currentIndex += direction;
+if(currentIndex >= totalSlides) currentIndex = 0;
+if(currentIndex < 0) currentIndex = totalSlides - 1;
+slides.style.transform = "translateX(-" + (currentIndex * 100) + "%)";
 }
 
-document.querySelector('.next').onclick=()=>{index++;showSlide(index)};
-document.querySelector('.prev').onclick=()=>{index--;showSlide(index)};
-setInterval(()=>{index++;showSlide(index)},4000);
+setInterval(function(){
+moveSlide(1);
+},4000);
 </script>
 
 </body>
