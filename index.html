@@ -1,481 +1,503 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Senthil Studio</title>
 
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- FontAwesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+/>
 
 <style>
+  /* ===== THEME COLORS ===== */
+  :root {
+    --lavender: #e6e6fa;
+    --purple: #9b7ede;
+    --dark: #5e4b8b;
+    --white: #ffffff;
+    --soft: #f4f0ff;
+  }
 
-/* ===== THEME COLORS ===== */
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: var(--lavender);
+    color: #333;
+    font-size: 18px;
+  }
 
-:root{
---lavender:#e6e6fa;
---purple:#9b7ede;
---dark:#5e4b8b;
---white:#ffffff;
---soft:#f4f0ff;
-}
+  /* ===== HEADER ===== */
+  header {
+    background: linear-gradient(135deg, #d8ccff, #c3b6ff);
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
 
-body{
-margin:0;
-font-family:'Poppins', sans-serif;
-background:var(--lavender);
-color:#333;
-font-size:18px;
-}
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
 
-/* ===== HEADER ===== */
+  nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 18px;
+  }
 
-header{
-background:linear-gradient(135deg,#d8ccff,#c3b6ff);
-padding:20px;
-position:fixed;
-width:100%;
-top:0;
-z-index:1000;
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
+  nav a:hover {
+    color: #000;
+  }
 
-nav{
-display:flex;
-justify-content:center;
-gap:50px;
-}
+  /* ===== BANNER ===== */
+  .slider {
+    margin-top: 100px;
+    overflow: hidden;
+    position: relative;
+    background: var(--soft);
+  }
 
-nav a{
-text-decoration:none;
-color:var(--dark);
-font-weight:600;
-font-size:18px;
-}
+  .slides {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+  }
 
-nav a:hover{
-color:#000;
-}
+  .slides img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
 
-/* ===== BANNER ===== */
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    color: var(--dark);
+  }
 
-.slider{
-margin-top:100px;
-overflow:hidden;
-position:relative;
-background:var(--soft);
-}
+  .prev {
+    left: 20px;
+  }
 
-.slides{
-display:flex;
-transition:transform 0.8s ease-in-out;
-}
+  .next {
+    right: 20px;
+  }
 
-.slides img{
-width:100%;
-height:600px;
-object-fit:cover;
-flex-shrink:0;
-}
+  /* ===== WELCOME SECTION ===== */
+  .welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 10%;
+    gap: 80px;
+    background: var(--soft);
+  }
 
-.prev,.next{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(255,255,255,0.9);
-border:none;
-padding:14px 20px;
-cursor:pointer;
-font-size:20px;
-border-radius:50%;
-color:var(--dark);
-}
+  .welcome-image {
+    flex: 1;
+  }
 
-.prev{left:20px;}
-.next{right:20px;}
+  .welcome-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
 
-/* ===== WELCOME SECTION ===== */
+  .welcome-content {
+    flex: 1;
+  }
 
-.welcome{
-display:flex;
-align-items:center;
-justify-content:center;
-padding:120px 10%;
-gap:80px;
-background:var(--soft);
-}
+  .welcome-content h2 {
+    color: var(--dark);
+    font-size: 38px;
+    margin-bottom: 20px;
+  }
 
-.welcome-image{
-flex:1;
-}
+  .welcome-content p {
+    font-size: 18px;
+    line-height: 1.8;
+  }
 
-.welcome-image img{
-width:100%;
-max-width:500px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
-}
+  /* ===== SERVICES ===== */
+  .services {
+    text-align: center;
+    padding: 100px 10%;
+  }
 
-.welcome-content{
-flex:1;
-}
+  .services h2 {
+    font-size: 36px;
+    color: var(--dark);
+    margin-bottom: 40px;
+  }
 
-.welcome-content h2{
-color:var(--dark);
-font-size:38px;
-margin-bottom:20px;
-}
+  .service-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
 
-.welcome-content p{
-font-size:18px;
-line-height:1.8;
-}
+  .service-box {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.4s;
+    width: 280px;
+  }
 
-/* ===== SERVICES ===== */
+  .service-box:hover {
+    transform: translateY(-12px);
+  }
 
-.services{
-text-align:center;
-padding:100px 10%;
-}
+  .service-box img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 14px;
+  }
 
-.services h2{
-font-size:36px;
-color:var(--dark);
-margin-bottom:40px;
-}
+  .service-box h3 {
+    margin-top: 15px;
+    font-size: 20px;
+  }
 
-.service-container{
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
-}
+  .button {
+    margin-top: 40px;
+    padding: 14px 40px;
+    background: var(--purple);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+  }
 
-.service-box{
-background:var(--white);
-padding:20px;
-border-radius:18px;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
-cursor:pointer;
-transition:0.4s;
-width:280px;
-}
+  .button:hover {
+    background: var(--dark);
+  }
 
-.service-box:hover{
-transform:translateY(-12px);
-}
+  /* ===== GALLERY ===== */
+  .gallery-section {
+    background: var(--soft);
+    padding: 100px 0;
+    text-align: center;
+    overflow: hidden;
+  }
 
-.service-box img{
-width:100%;
-height:260px;
-object-fit:cover;
-border-radius:14px;
-}
+  .gallery-section h2 {
+    font-size: 36px;
+    color: var(--dark);
+    margin-bottom: 40px;
+  }
 
-.service-box h3{
-margin-top:15px;
-font-size:20px;
-}
+  .gallery-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+  }
 
-.button{
-margin-top:40px;
-padding:14px 40px;
-background:var(--purple);
-color:white;
-border:none;
-cursor:pointer;
-border-radius:30px;
-font-weight:600;
-font-size:16px;
-}
+  .gallery-track {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+  }
 
-.button:hover{
-background:var(--dark);
-}
+  .gallery-track img {
+    width: 320px;
+    height: 220px;
+    margin: 0 15px;
+    object-fit: cover;
+    border-radius: 14px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
 
-/* ===== GALLERY ===== */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 
-.gallery-section{
-background:var(--soft);
-padding:100px 0;
-text-align:center;
-overflow:hidden;
-}
+  /* ===== FOOTER ===== */
+  footer {
+    background: linear-gradient(135deg, #d8ccff, #c3b6ff);
+    padding: 70px 8%;
+    color: #4b3a6b;
+  }
 
-.gallery-section h2{
-font-size:36px;
-color:var(--dark);
-margin-bottom:40px;
-}
+  footer > div.socials-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    margin-bottom: 30px;
+  }
 
-.gallery-wrapper{
-overflow:hidden;
-white-space:nowrap;
-}
+  footer > div.socials-wrapper > div.label {
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 16px;
+    border-left: 3px solid var(--purple);
+    padding-left: 10px;
+  }
 
-.gallery-track{
-display:inline-block;
-animation:marquee 30s linear infinite;
-}
+  footer > div.socials-wrapper > div.social-icons {
+    display: flex;
+    gap: 20px;
+  }
 
-.gallery-track img{
-width:320px;
-height:220px;
-margin:0 15px;
-object-fit:cover;
-border-radius:14px;
-box-shadow:0 6px 15px rgba(0,0,0,0.1);
-}
+  .social-icons a {
+    color: var(--purple);
+    background: white;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: background 0.3s, color 0.3s;
+    text-decoration: none;
+  }
 
-@keyframes marquee{
-0%{transform:translateX(0);}
-100%{transform:translateX(-50%);}
-}
+  .social-icons a:hover {
+    background: var(--purple);
+    color: white;
+  }
 
-/* ===== FOOTER ===== */
+  .footer-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
 
-footer{
-background:linear-gradient(135deg,#d8ccff,#c3b6ff);
-padding:70px 8%;
-}
+  .footer-columns div {
+    flex: 1;
+    min-width: 230px;
+  }
 
-.footer-columns{
-display:flex;
-justify-content:space-between;
-gap:40px;
-flex-wrap:wrap;
-}
+  .footer-columns h3 {
+    color: var(--dark);
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
 
-.footer-columns div{
-flex:1;
-min-width:230px;
-}
+  .footer-columns a,
+  .footer-columns p {
+    display: block;
+    text-decoration: none;
+    color: #4b3a6b;
+    margin: 10px 0;
+    font-size: 16px;
+  }
 
-.footer-columns h3{
-color:var(--dark);
-margin-bottom:20px;
-font-size:20px;
-}
+  .footer-columns a:hover {
+    color: var(--purple);
+  }
 
-.footer-columns a,
-.footer-columns p{
-display:block;
-text-decoration:none;
-color:#333;
-margin:10px 0;
-font-size:16px;
-}
+  iframe {
+    width: 100%;
+    height: 220px;
+    border-radius: 14px;
+    border: 2px solid white;
+  }
 
-.footer-columns a:hover{
-color:var(--purple);
-}
+  .footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 16px;
+  }
 
-iframe{
-width:100%;
-height:220px;
-border-radius:14px;
-border:2px solid white;
-}
-
-.footer-bottom{
-text-align:center;
-margin-top:40px;
-padding-top:20px;
-border-top:1px solid rgba(0,0,0,0.1);
-font-size:16px;
-}
-
-.social-icons{
-text-align:center;
-margin-bottom:30px;
-}
-
-.social-icons i{
-font-size:20px;
-margin:0 12px;
-background:white;
-color:var(--purple);
-padding:12px;
-border-radius:50%;
-cursor:pointer;
-}
-
-.social-icons i:hover{
-background:var(--purple);
-color:white;
-}
-
-/* ===== RESPONSIVE ===== */
-
-@media(max-width:900px){
-.welcome{
-flex-direction:column;
-text-align:center;
-}
-}
-
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .welcome {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
 </style>
 </head>
 <body>
+  <header>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Services</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact Us</a>
+    </nav>
+  </header>
 
-<header>
-<nav>
-<a href="#">Home</a>
-<a href="#">About Us</a>
-<a href="#">Services</a>
-<a href="#">Gallery</a>
-<a href="#">Contact Us</a>
-</nav>
-</header>
+  <!-- ===== BANNER ===== -->
+  <div class="slider">
+    <div class="slides" id="slides">
+      <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486" />
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552" />
+      <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" />
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
 
-<!-- ===== BANNER ===== -->
+  <!-- ===== WELCOME ===== -->
+  <section class="welcome">
+    <div class="welcome-image">
+      <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0" />
+    </div>
 
-<div class="slider">
-<div class="slides" id="slides">
-<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
-</div>
-<button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-<button class="next" onclick="moveSlide(1)">&#10095;</button>
-</div>
+    <div class="welcome-content">
+      <h2>Welcome to Senthil Studio</h2>
+      <p>
+        Located at First Floor, Thirupathur Bus Stand Opposite, Thirupathur.
+        We capture timeless memories through wedding, event, baby and portrait
+        photography with creativity and perfection. Our goal is to transform
+        every special moment into a beautiful story that lasts forever.
+      </p>
+    </div>
+  </section>
 
-<!-- ===== WELCOME ===== -->
+  <!-- ===== SERVICES ===== -->
+  <section class="services">
+    <h2>Our Services</h2>
 
-<section class="welcome">
+    <div class="service-container">
+      <div class="service-box">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc" />
+        <h3>Wedding Photography</h3>
+      </div>
 
-<div class="welcome-image">
-<img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0">
-</div>
+      <div class="service-box">
+        <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" />
+        <h3>Event Photography</h3>
+      </div>
 
-<div class="welcome-content">
-<h2>Welcome to Senthil Studio</h2>
-<p>
-Located at First Floor, Thirupathur Bus Stand Opposite, Thirupathur.
-We capture timeless memories through wedding, event, baby and portrait photography with creativity and perfection.
-Our goal is to transform every special moment into a beautiful story that lasts forever.
-</p>
-</div>
+      <div class="service-box">
+        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0" />
+        <h3>Portrait Shoots</h3>
+      </div>
+    </div>
 
-</section>
+    <button class="button">View Our Services</button>
+  </section>
 
-<!-- ===== SERVICES ===== -->
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery-section">
+    <h2>Our Gallery</h2>
 
-<section class="services">
-<h2>Our Services</h2>
+    <div class="gallery-wrapper">
+      <div class="gallery-track">
+        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486" />
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552" />
+        <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" />
+        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0" />
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc" />
 
-<div class="service-container">
-<div class="service-box">
-<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
-<h3>Wedding Photography</h3>
-</div>
+        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486" />
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552" />
+        <img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" />
+        <img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0" />
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc" />
+      </div>
+    </div>
 
-<div class="service-box">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
-<h3>Event Photography</h3>
-</div>
+    <br />
+    <button class="button">View Gallery</button>
+  </section>
 
-<div class="service-box">
-<img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0">
-<h3>Portrait Shoots</h3>
-</div>
-</div>
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="socials-wrapper">
+      <div class="label">View Our Socials</div>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
 
-<button class="button">View Our Services</button>
-</section>
+    <div class="footer-columns">
+      <div>
+        <h3>Quick Links</h3>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+      </div>
 
-<!-- ===== GALLERY ===== -->
+      <div>
+        <h3>Our Services</h3>
+        <p>Wedding Photography</p>
+        <p>Event Photography</p>
+        <p>Baby Shoots</p>
+        <p>Portrait Sessions</p>
+      </div>
 
-<section class="gallery-section">
-<h2>Our Gallery</h2>
+      <div>
+        <h3>Contact Details</h3>
+        <p>📞 94431 91631</p>
+        <p>📍 First Floor, Thirupathur Bus Stand Opposite, Thirupathur</p>
+        <p>📧 senthilstudio@email.com</p>
+      </div>
 
-<div class="gallery-wrapper">
-<div class="gallery-track">
-<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
-<img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0">
-<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
+      <div>
+        <h3>Our Location</h3>
+        <iframe
+          src="https://www.google.com/maps?q=Thirupathur&output=embed"
+          style="border-radius: 14px; border: 2px solid white; width: 100%; height: 220px"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
 
-<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-<img src="https://images.unsplash.com/photo-1492724441997-5dc865305da7">
-<img src="https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0">
-<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
-</div>
-</div>
+    <div class="footer-bottom">
+      © 2026 Senthil Studio. All rights reserved.
+    </div>
+  </footer>
 
-<br>
-<button class="button">View Gallery</button>
-</section>
+  <script>
+    let currentIndex = 0;
+    const slides = document.getElementById("slides");
+    const totalSlides = slides.children.length;
 
-<!-- ===== FOOTER ===== -->
+    function moveSlide(direction) {
+      currentIndex += direction;
+      if (currentIndex >= totalSlides) currentIndex = 0;
+      if (currentIndex < 0) currentIndex = totalSlides - 1;
+      slides.style.transform = "translateX(-" + currentIndex * 100 + "%)";
+    }
 
-<footer>
-
-<div class="social-icons">
-<i class="fab fa-facebook-f"></i>
-<i class="fab fa-instagram"></i>
-<i class="fab fa-youtube"></i>
-</div>
-
-<div class="footer-columns">
-
-<div>
-<h3>Quick Links</h3>
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Services</a>
-<a href="#">Gallery</a>
-<a href="#">Contact</a>
-</div>
-
-<div>
-<h3>Our Services</h3>
-<p>Wedding Photography</p>
-<p>Event Photography</p>
-<p>Baby Shoots</p>
-<p>Portrait Sessions</p>
-</div>
-
-<div>
-<h3>Contact Details</h3>
-<p>📞 94431 91631</p>
-<p>📍 First Floor, Thirupathur Bus Stand Opposite, Thirupathur</p>
-<p>📧 senthilstudio@email.com</p>
-</div>
-
-<div>
-<h3>Our Location</h3>
-<iframe src="https://www.google.com/maps?q=Thirupathur&output=embed"></iframe>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-© 2026 Senthil Studio. All rights reserved.
-</div>
-
-</footer>
-
-<script>
-let currentIndex = 0;
-const slides = document.getElementById("slides");
-const totalSlides = slides.children.length;
-
-function moveSlide(direction){
-currentIndex += direction;
-if(currentIndex >= totalSlides) currentIndex = 0;
-if(currentIndex < 0) currentIndex = totalSlides - 1;
-slides.style.transform = "translateX(-" + (currentIndex * 100) + "%)";
-}
-
-setInterval(function(){
-moveSlide(1);
-},4000);
-</script>
-
+    setInterval(function () {
+      moveSlide(1);
+    }, 4000);
+  </script>
 </body>
 </html>
